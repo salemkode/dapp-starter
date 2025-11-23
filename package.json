@@ -12,9 +12,9 @@
 		"compile": "bun run --filter='*' compile",
 		"dev": "bun run --filter='*' dev",
 		"bump": "node bump_version.cjs",
-		"publish": "yarn workspaces run publish:public",
-		"build": "yarn workspaces run build",
-		"test": "yarn workspaces run test",
+		"publish": "bun run --filter='*' publish:public",
+		"build": "bun run --filter='*' build",
+		"test": "bun run --filter='*' test",
 		"clean": "rm -rf packages/**/dist"
 	},
 	"dependencies": {
