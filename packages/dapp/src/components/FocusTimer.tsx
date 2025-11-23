@@ -165,11 +165,12 @@ export default function FocusTimer({
 								: "Start Focus"}
 				</button>
 
+				{/* Reset button */}
 				<button
 					type="button"
 					onClick={resetTimer}
-					disabled={isWaitingForTx}
-					className="p-3 rounded-xl bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white border border-white/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+					disabled={!isActive}
+					className="p-3 rounded-xl bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-white border border-white/10 transition-all disabled:cursor-not-allowed disabled:opacity-10"
 					title="Reset Timer"
 				>
 					<svg

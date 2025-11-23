@@ -11,9 +11,10 @@ export function useWallet(): BaseWallet | undefined {
 		queryFn: async () => {
 			if (!address) return undefined;
 			const w = await Wallet.watchOnly(address);
-			(w as any).provider = await getNetworkProvider();
+			(w as any).provider = getNetworkProvider();
 			return w;
 		},
+		enabled: !!address,
 	});
 	return wallet;
 }

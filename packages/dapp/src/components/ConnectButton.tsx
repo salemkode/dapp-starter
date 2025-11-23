@@ -8,7 +8,7 @@ const ConnectButton: React.FC = () => {
 	const { address, connect, disconnect, isConnected } =
 		useWeb3ModalConnectorContext();
 	const [loading, setLoading] = useState(false);
-	const { balance } = useWatchAddress(address || "");
+	const { balance, refetch } = useWatchAddress(address || "");
 
 	const connectWallet = useCallback(async () => {
 		if (!connect) {
@@ -18,7 +18,7 @@ const ConnectButton: React.FC = () => {
 		try {
 			setLoading(true);
 			await connect();
-		} catch (err) {
+		} catch {
 			alert("Failed to connect wallet.");
 		}
 		setLoading(false);
@@ -32,7 +32,7 @@ const ConnectButton: React.FC = () => {
 		try {
 			setLoading(true);
 			await disconnect();
-		} catch (err) {
+		} catch {
 			alert("Failed to disconnect wallet.");
 		}
 		setLoading(false);
@@ -68,6 +68,26 @@ const ConnectButton: React.FC = () => {
 							{formatBalance(balance ?? 0)}
 						</span>
 					</div>
+					<button
+						onClick={() => refetch()}
+						className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all"
+						title="Refresh Balance"
+					>
+						<svg
+							className="w-4 h-4"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth={2}
+								d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+							/>
+						</svg>
+						<span className="text-xs font-medium">Refresh</span>
+					</button>
 					<button
 						onClick={disconnectWallet}
 						disabled={loading}

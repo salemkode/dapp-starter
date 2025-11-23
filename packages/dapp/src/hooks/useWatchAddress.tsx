@@ -71,5 +71,5 @@ export function useWatchAddress(address?: string, tokenId?: string) {
 		};
 	}, [address, wallet, refetch]);
 
-	return { balance, tokenBalance, utxos, tokenUtxos };
+	return { balance, tokenBalance, utxos, tokenUtxos, refetch };
 }
