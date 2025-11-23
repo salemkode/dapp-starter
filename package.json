@@ -13,7 +13,7 @@
 		"dev": "bun run --filter='*' dev",
 		"bump": "node bump_version.cjs",
 		"publish": "bun run --filter='*' publish:public",
-		"build": "bun run --filter='*' build",
+		"build": "bun run --filter='*' compile && cd packages/dapp && bun run build",
 		"test": "bun run --filter='*' test",
 		"clean": "rm -rf packages/**/dist"
 	},

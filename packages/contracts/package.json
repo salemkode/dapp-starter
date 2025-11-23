@@ -13,7 +13,7 @@
 		"test": "test"
 	},
 	"scripts": {
-		"build": "yarn clean && yarn compile",
+		"build": "yarn compile",
 		"build:test": "yarn clean:test && yarn compile:test",
 		"clean": "rm -rf ./dist",
 		"clean:test": "rm -rf ./dist-test",
